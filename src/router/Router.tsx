@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { Card } from "../pages/Card";
-import App from "../App";
+import { Login } from "../pages/Login";
 
 export const Router = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="cards/:id" element={<Card />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/cards/:id" element={<Card />} />
       </Routes>
     </>
   );

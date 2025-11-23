@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Button,
   Card,
@@ -6,30 +7,41 @@ import {
   Heading,
   Input,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { useState, type ChangeEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => {
     setUserId(e.target.value);
   };
 
   const handleClick = () => {
-    if (!userId) return;
+    if (!userId) return setError("IDを入力してください");
     navigate(`/cards/${userId}`);
   };
 
   return (
-    <Box mx="auto">
-      <Heading as="h1" mb="5">
+    <Box w="320px" mx="auto">
+      <Heading as="h1" mb="6" mt="16" textAlign="center" size="3xl">
         デジタル名刺アプリ
       </Heading>
-      <Card.Root maxW="sm">
+
+      {error && (
+        <Alert.Root status="error">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>エラー</Alert.Title>
+            <Alert.Description>{error}</Alert.Description>
+          </Alert.Content>
+        </Alert.Root>
+      )}
+
+      <Card.Root maxW="sm" mb="4">
         <Card.Body>
           <Stack gap="4" w="full">
             <Field.Root>
@@ -39,12 +51,19 @@ export const Login = () => {
           </Stack>
         </Card.Body>
         <Card.Footer>
-          <Button w="full" variant="ghost" onClick={handleClick}>
+          <Button
+            w="full"
+            bg="teal"
+            _hover={{ opacity: 0.7 }}
+            onClick={handleClick}
+          >
             名刺をみる
           </Button>
         </Card.Footer>
       </Card.Root>
-      <Text>新規登録はこちら</Text>
+      <Box textAlign="center" _hover={{ opacity: 0.7 }}>
+        <Link to="/cards/register">新規登録はこちら</Link>
+      </Box>
     </Box>
   );
 };

@@ -3,7 +3,7 @@ const userData = {
   created_at: "2025-11-20",
   user_id: "test_id",
   name: "テスト太郎",
-  description: "テスト太郎の自己紹介文です",
+  description: "テスト太郎の自己紹介",
   github_id: "github-testid",
   qiita_id: "qiita-testid",
   x_id: "x-testid",

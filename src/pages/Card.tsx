@@ -64,7 +64,7 @@ export const Card = () => {
   }, [id]);
 
   const handleBackToLogin = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   if (loading) {

@@ -115,7 +115,7 @@ export const Register = () => {
                 {...register("user_id", {
                   required: {
                     value: true,
-                    message: "入力が必須の項目です",
+                    message: "ID入力が必須の項目です",
                   },
                 })}
               />
@@ -128,7 +128,7 @@ export const Register = () => {
                 {...register("name", {
                   required: {
                     value: true,
-                    message: "入力が必須の項目です",
+                    message: "お名前入力が必須の項目です",
                   },
                 })}
               />
@@ -143,7 +143,7 @@ export const Register = () => {
                 {...register("description", {
                   required: {
                     value: true,
-                    message: "入力が必須の項目です",
+                    message: "自己紹介入力が必須の項目です",
                   },
                 })}
               />
